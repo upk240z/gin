@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/clsung/grcode"
+	"github.com/djimenez/iconv-go"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -117,6 +118,25 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
+		})
+	})
+
+	router.GET("/check-text", func(c *gin.Context) {
+		text, exist := c.GetQuery("text")
+
+		result := false
+
+		if exist {
+			sjis, _ := iconv.ConvertString(text, "utf-8", "sjis-win")
+			utf8, _ := iconv.ConvertString(sjis, "sjis-win", "utf-8")
+			fmt.Println(utf8)
+			if text == utf8 {
+				result = true
+			}
+		}
+
+		c.JSON(200, gin.H{
+			"result": result,
 		})
 	})
 

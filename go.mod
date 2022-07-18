@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/clsung/grcode v0.0.0-20181204013735-e7f3c16fb531 // indirect
+	github.com/djimenez/iconv-go v0.0.0-20160305225143-8960e66bd3da // indirect
 	github.com/gin-contrib/cors v1.3.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7 // indirect
