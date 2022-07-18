@@ -7,7 +7,7 @@
   ```
 * Build
   ```
-  go run build
+  go build
   ```
 * CORS Origins in .env
   ```
